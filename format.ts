@@ -7,7 +7,7 @@ export function format(data: ArrayBufferView) {
     out += "         +-------------------------------------------------+\n";
     out += `         |${green("  0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f ")}|\n`;
     out += "+--------+-------------------------------------------------+----------------+\n";
-    const lineCount = Math.round(bytes.length / 16);
+    const lineCount = Math.ceil(bytes.length / 16);
     for (let line = 0; line < lineCount; line++) {
         const start = line * 16;
         const addr = start.toString(16).padStart(8, "0");
