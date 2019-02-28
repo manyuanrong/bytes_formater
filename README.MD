@@ -7,7 +7,7 @@ Formatting bytes(Uint8Array、Uint16Array、Uint32Array、ArrayBufferView..) out
 #### code
 
 ```ts
-import { format, setColorEnabled } from "https://raw.githubusercontent.com/manyuanrong/bytes_formater/master/mod.ts";
+import { format, setColorEnabled } from "https://deno.land/x/bytes_formater/mod.ts";
 
 const bytes = new Uint8Array([
     10, 53, 46, 54, 46, 51, 52, 0, 71, 241, 0, 59, 77, 99, 52, 49, 65, 107,
