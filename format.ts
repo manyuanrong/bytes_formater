@@ -1,5 +1,5 @@
 
-import { green } from "https://deno.land/x/std/colors/mod.ts";
+import { green } from "./deps.ts";
 
 export function format(data: ArrayBufferView) {
     const bytes = new Uint8Array(data.buffer);

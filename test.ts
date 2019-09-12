@@ -1,4 +1,5 @@
-import { test, runTests, assert } from "https://deno.land/x/testing/mod.ts";
+import { test, runTests } from "https://deno.land/std@v0.17.0/testing/mod.ts";
+import { assertEquals } from "https://deno.land/std@v0.17.0/testing/asserts.ts";
 import { format, setColorEnabled } from "./mod.ts";
 
 setColorEnabled(false);
@@ -22,7 +23,7 @@ test(function test1() {
 |00000040| 5f 70 61 73 73 77 6f 72 64 00                   |_password.      |
 +--------+-------------------------------------------------+----------------+`;
 
-    assert.equal(output, format(bytes).trim());
+    assertEquals(output, format(bytes).trim());
 });
 
 test(function test2() {
@@ -32,7 +33,7 @@ test(function test2() {
 +--------+-------------------------------------------------+----------------+
 |00000000| ad 94 45 00 64 c8 ae 00 4e 7a 43 00             |..E.d...NzC.    |
 +--------+-------------------------------------------------+----------------+`;
-    assert.equal(output, format(bytes).trim());
+    assertEquals(output, format(bytes).trim());
 });
 
 runTests();
