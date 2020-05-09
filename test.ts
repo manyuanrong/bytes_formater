@@ -1,10 +1,9 @@
-import { test, runTests } from "https://deno.land/std@v0.17.0/testing/mod.ts";
-import { assertEquals } from "https://deno.land/std@v0.17.0/testing/asserts.ts";
+import { assertEquals } from "https://deno.land/std@v0.50.0/testing/asserts.ts";
 import { format, setColorEnabled } from "./mod.ts";
 
 setColorEnabled(false);
 
-test(function test1() {
+Deno.test("test1", function test1() {
     const bytes = new Uint8Array([
         10, 53, 46, 54, 46, 51, 52, 0, 71, 241, 0, 59, 77, 99, 52, 49, 65, 107,
         77, 69, 0, 223, 247, 45, 2, 0, 111, 0, 21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -26,7 +25,7 @@ test(function test1() {
     assertEquals(output, format(bytes).trim());
 });
 
-test(function test2() {
+Deno.test("test2", function test2() {
     const bytes = new Uint32Array([4560045, 11454564, 4422222]);
     const output = `+-------------------------------------------------+
          |  0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f |
@@ -35,5 +34,3 @@ test(function test2() {
 +--------+-------------------------------------------------+----------------+`;
     assertEquals(output, format(bytes).trim());
 });
-
-runTests();
