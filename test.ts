@@ -1,4 +1,4 @@
-import { assertEquals } from "https://deno.land/std@v1.0.0-rc1/testing/asserts.ts";
+import { assertEquals } from "https://deno.land/std@v0.50.0/testing/asserts.ts";
 import { format, setColorEnabled } from "./mod.ts";
 
 setColorEnabled(false);

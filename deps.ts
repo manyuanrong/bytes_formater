@@ -1,4 +1,4 @@
 export {
   setColorEnabled,
   green
-} from "https://deno.land/std@v1.0.0-rc1/fmt/colors.ts";
+} from "https://deno.land/std@v0.50.0/fmt/colors.ts";
