@@ -2,20 +2,19 @@ name: ci
 
 on: 
   push: 
-    branches: master
+    branches: 
+      - master
   pull_request:
-    branches: master
+    branches: 
+      - master
   schedule:
     - cron:  '0 0 * * *'
 
 jobs:
   build:
-    name: ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
+    name: ubuntu-latest
+    runs-on: ubuntu-latest
     timeout-minutes: 60
-    strategy:
-      matrix:
-        os: [macOS-latest, windows-2019, ubuntu-latest]
 
     steps:
       - name: Checkout
