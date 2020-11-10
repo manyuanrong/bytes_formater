@@ -1,0 +1,33 @@
+name: ci
+
+on: 
+  push: true
+  pull_request: true
+  schedule:
+    - cron:  '0 0 * * *'
+
+jobs:
+  build:
+    name: ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 60
+    strategy:
+      matrix:
+        os: [macOS-latest, windows-2019, ubuntu-latest]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install Deno
+        uses: denolib/setup-deno@master
+        with:
+          deno-version: 1.x.x
+      - name: Log versions
+        run: |
+          deno --version
+      # Lint
+      - name: Format TS
+        run: deno fmt --check    
+      # Tests
+      - name: Test TS
+        run: deno test ./test.ts
